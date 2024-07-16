@@ -10,15 +10,9 @@ app.get("/models", (req, res) => {
   res.json(models);
 });
 
-// app.get("/models/:id", (req, res) => {
-//   const modelId = parseInt(req.params.id, 10);
-//   const model = models.find((m) => m.id === modelId);
-//   if (model) {
-//     res.json(model);
-//   } else {
-//     res.status(404).send("Model not found");
-//   }
-// });
+app.get("/featured/models", (req, res) => {
+  res.json(models.splice(0, 5));
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
